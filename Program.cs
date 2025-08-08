@@ -34,10 +34,66 @@
 
         // 6. Exibir todas as tarefas restantes com índice
         Console.WriteLine("\nTarefas restantes:");
-       foreach()
-        
+        foreach (var tarefa in tarefas)
+        {
+            int indice = tarefas.IndexOf(tarefa);
+            Console.WriteLine($"{indice}: {tarefa}");
+        }
+
 
         Console.WriteLine("\n******************************02******************************************");
+
+        Queue<string> fila = new Queue<string>();
+
+        // Adicionando clientes à fila
+        fila.Enqueue("Ana");
+        fila.Enqueue("Carlos");
+        fila.Enqueue("João");
+        fila.Enqueue("Mariana");
+        fila.Enqueue("Pedro");
+
+        Console.WriteLine("Fila inicial:");
+        foreach (string cliente in fila)
+        {
+            Console.WriteLine(cliente);
+        }
+
+        Console.WriteLine("\n=== Atendimento ===");
+        // Atendendo o primeiro cliente da fila
+        if (fila.Count > 0)
+        {
+            string atendido = fila.Dequeue();
+            Console.WriteLine("Cliente atendido: " + atendido);
+        }
+
+        // Pesquisar se "João" ainda está na fila
+        string pesquisa = "João";
+        if (fila.Contains(pesquisa))
+        {
+            int posicao = 1;
+            foreach (string cliente in fila)
+            {
+                if (cliente == pesquisa)
+                {
+                    Console.WriteLine($"\nO cliente {pesquisa} está na fila, posição: {posicao}");
+                    break;
+                }
+                posicao++;
+            }
+        }
+        else
+        {
+            Console.WriteLine($"\nO cliente {pesquisa} não está mais na fila.");
+        }
+
+        // Exibir todos os clientes restantes na fila
+        Console.WriteLine("\nClientes restantes na fila:");
+        foreach (string cliente in fila)
+        {
+            Console.WriteLine(cliente);
+        }
+
+        Console.WriteLine("\nAtendimento finalizado.");
 
         Dictionary<string, string> agenda = new Dictionary<string, string>();
 
@@ -75,7 +131,7 @@
             Console.WriteLine($"Nome: {contato.Key}, Telefone: {contato.Value}");
         }
 
-        
+
 
         Console.WriteLine("\n******************************03******************************************");
 
